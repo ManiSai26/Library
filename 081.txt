@@ -1,0 +1,63 @@
+Perceptron Training Rule for 'AND' Function
+
+x1 = [0,0,1,1]
+x2 = [0,1,0,1]
+target = [0,0,0,1]
+w1 = 0.5
+w2 = 0.5
+lr = 0.1
+w0 = -1
+def activation(x):
+    if(x>0):
+        return 1
+    else:
+        return 0
+
+def weight_update(E,i):
+    global w1,w2
+    w1 = w1 + (lr*E*x1[i])
+    w2 = w2 + (lr*E*x1[i])
+
+def summation(i):
+    sum1 = x1[i]*w1+x2[i]*w2+w0
+    y = activation(sum1)
+    if(y != target[i]):
+        weight_update(target[i]-y,i)
+
+i = 0
+while(i<4):
+    summation(i)
+    i += 1
+print(w1,w2)
+
+Perceptron Training Rule foor 'OR' Function
+
+x1 = [0,0,1,1]
+x2 = [0,1,0,1]
+target = [0,1,1,1]
+w1 = 0.5
+w2 = 0.5
+lr = 0.1
+w0 = -1
+def activation(x):
+    if(x>0):
+        return 1
+    else:
+        return 0
+
+def weight_update(E,i):
+    global w1,w2
+    w1 = w1 + (lr*E*x1[i])
+    w2 = w2 + (lr*E*x1[i])
+
+def summation(i):
+    sum1 = x1[i]*w1+x2[i]*w2+w0
+    y = activation(sum1)
+    if(y != target[i]):
+        weight_update(target[i]-y,i)
+
+i = 0
+while(i<4):
+    summation(i)
+    i += 1
+print(w1,w2)
